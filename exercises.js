@@ -6,16 +6,35 @@ function multiplyArguments() {
 	//use the arguments keyword to multiply all of the arguments together and return the product
 	//if no arguments are passed in return 0
 	//if one argument is passed in just return it
+	var product = 1;
+
+	if (arguments.length === 0) {
+		return 0;
+	}
+
+	for (var i = 0; i < arguments.length; i++) {
+		product *= arguments[i];
+	}
+	return product;
 }
 
 function invokeCallback(cb) {
 	//invoke cb
+	cb();
 }
 
 function sumArray(numbers, cb) {
 	//sum up all of the integers in the numbers array
 	//pass the result to cb
 	//no return is necessary
+	var total = 0;
+	return function() {
+		for (var i = 0; i < numbers.length; i++) {
+			total += numbers[i];
+		}
+		cb();
+	};
+
 }
 
 function forEach(arr, cb) {
